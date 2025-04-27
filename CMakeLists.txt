@@ -102,7 +102,7 @@ if(REALTIME)
     set(THREADS_PREFER_PTHREAD_FLAG TRUE)
     find_package(Threads REQUIRED)
     link_libraries(Threads::Threads)
-    if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
+    if(${CMAKE_SYSTEM_NAME} STREQUAL Linux OR ${CMAKE_SYSTEM_NAME} STREQUAL Android)
         # TODO: Finish Linux configuration, include different audio API supports
         #==============    LINUX       ================#
         message("Linux DETECTED!")
