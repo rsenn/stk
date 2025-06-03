@@ -158,24 +158,6 @@ if(INSTALL_HEADERS)
   install(FILES ${STK_HEADERS} DESTINATION include/stk)
 endif()
 
-#[[include(CheckLibraryExists)
-include(CheckFunctionExists)
-
-check_library_exists(pthread pthread_create "" HAS_LIBPTHREAD)
-
-if(HAS_LIBPTHREAD)
-  set(CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES} pthread)
-
-  check_function_exists(pthread_attr_setinheritsched HAVE_PTHREAD_ATTR_SETINHERITSCHED)
-  if(NOT HAVE_PTHREAD_ATTR_SETINHERITSCHED)
-    add_definitions(-DNO_PTHREAD_ATTR_SETINHERITSCHED)
-  endif(NOT HAVE_PTHREAD_ATTR_SETINHERITSCHED)
-  check_function_exists(pthread_testcancel HAVE_PTHREAD_TESTCANCEL)
-  if(NOT HAVE_PTHREAD_TESTCANCEL)
-    add_definitions(-DNO_PTHREAD_TESTCANCEL)
-  endif(NOT HAVE_PTHREAD_TESTCANCEL)
-endif(HAS_LIBPTHREAD)]]
-
 include(CheckLibraryExists)
 include(CheckFunctionExists)
 include(CheckSymbolExists)
