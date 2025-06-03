@@ -158,6 +158,13 @@ if(INSTALL_HEADERS)
   install(FILES ${STK_HEADERS} DESTINATION include/stk)
 endif()
 
+include(CheckCompilerFlags)
+
+check_compiler_flag(CXX -Wno-deprecated FLAG_W_NO_DEPRECATED)
+if(FLAG_W_NO_DEPRECATED)
+  list(APPEND CMAKE_CXX_FLAGS -Wno-deprecated)
+endif(FLAG_W_NO_DEPRECATED)
+
 include(CheckLibraryExists)
 include(CheckFunctionExists)
 include(CheckSymbolExists)
