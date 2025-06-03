@@ -22,6 +22,15 @@
 
 #include "Thread.h"
 
+#ifdef HAVE_LIBPTHREAD
+#ifndef HAVE_PTHREAD_TESTCANCEL
+#define pthread_testcancel()
+#endif
+#ifndef HAVE_PTHREAD_CANCEL
+#define pthread_cancel(pth) (-1)
+#endif
+#endif
+
 namespace stk {
 
 Thread :: Thread()
