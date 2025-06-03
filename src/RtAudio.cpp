@@ -55,6 +55,15 @@
 #include <windows.h>
 #endif
 
+#ifdef HAVE_LIBPTHREAD
+#ifndef HAVE_PTHREAD_TESTCANCEL
+#define pthread_testcancel()
+#endif
+#ifdef NEED_PTHREAD_ATTR_SETINHERITSCHED_DECL
+int pthread_attr_setinheritsched(pthread_attr_t* , int);
+#endif
+#endif
+
 // Static variable definitions.
 const unsigned int RtApi::MAX_SAMPLE_RATES = 14;
 const unsigned int RtApi::SAMPLE_RATES[] = {
